@@ -1,0 +1,41 @@
+@import './background.scss';
+@import './title.scss';
+
+.tjs__canvas,
+.tjs__canvas-wrapper { 
+    height: 500px !important;
+    width: 100%;
+}
+
+.tjs__canvas { position: absolute !important; }
+/**************************/
+/* CSS Animations Classes */
+/**************************/
+
+/* 
+The following class-endings: *-enter, *-enter-active, *-exit, *-exit-active,
+have very specific meanings to <CSSTransition />
+(see more: https://reactcommunity.org/react-transition-group/css-transition)
+*/
+
+.fade-enter {
+    opacity: 0;
+    transform: translate(-300px, 0);
+    z-index: 1;
+}
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transform: translate(0, 0);
+
+    transition: opacity 250ms ease-out, transform 300ms ease;
+}
+.fade-exit {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+.fade-exit.fade-exit-active {
+    opacity: 0;
+    transform: translate(300px, 0);
+
+    transition: opacity 250ms ease-out, transform 300ms ease;
+}
